@@ -18,7 +18,6 @@ COPY ./conf/nginx.default.conf /etc/nginx/conf.d/default.conf
 RUN sed -i 's/www-data/wp/g' /etc/php/8.2/fpm/pool.d/www.conf
 RUN sed -i 's/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/g' \
   /etc/php/8.2/fpm/pool.d/www.conf
-RUN echo 'clear_env = no' >> /etc/php/8.2/fpm/pool.d/www.conf
 
 EXPOSE 80
 ENTRYPOINT ["/init-wp.sh"]

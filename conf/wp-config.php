@@ -1,6 +1,6 @@
 <?php
 
-if (getenv('WORDPRESS_ENV') === 'development') {
+if ('%WORDPRESS_ENV%' === 'development') {
   define('WP_DEBUG', true);
 }
 else {
@@ -8,21 +8,14 @@ else {
   $_SERVER['HTTPS'] = 'on';
 }
 
-define('DB_NAME',     getenv('WORDPRESS_DB_NAME'));
-define('DB_USER',     getenv('WORDPRESS_DB_USER'));
-define('DB_PASSWORD', getenv('WORDPRESS_DB_PASSWORD'));
-define('DB_HOST',     getenv('WORDPRESS_DB_HOST'));
+define('DB_NAME',     '%WORDPRESS_DB_NAME%');
+define('DB_USER',     '%WORDPRESS_DB_USER%');
+define('DB_PASSWORD', '%WORDPRESS_DB_PASSWORD%');
+define('DB_HOST',     '%WORDPRESS_DB_HOST%');
 define('DB_CHARSET',  'utf8');
 define('DB_COLLATE',  '');
 
-define('AUTH_KEY',         'put your unique phrase here');
-define('SECURE_AUTH_KEY',  'put your unique phrase here');
-define('LOGGED_IN_KEY',    'put your unique phrase here');
-define('NONCE_KEY',        'put your unique phrase here');
-define('AUTH_SALT',        'put your unique phrase here');
-define('SECURE_AUTH_SALT', 'put your unique phrase here');
-define('LOGGED_IN_SALT',   'put your unique phrase here');
-define('NONCE_SALT',       'put your unique phrase here');
+%WORDPRESS_SALTS%
 
 $table_prefix = 'wp_';
 
