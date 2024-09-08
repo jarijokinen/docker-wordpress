@@ -20,6 +20,6 @@ fi
 service php8.2-fpm start
 service nginx start
 
-[[ $DAEMONIZE == 1 ]] && tail -f /dev/null
+[[ $FOREGROUND == 1 ]] && tail -f /dev/null
 
 exit 0
