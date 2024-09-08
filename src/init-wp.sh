@@ -17,6 +17,9 @@ if [[ ! -f /wp/wp-config.php ]]; then
   chown -R wp:wp /wp
 fi
 
-/etc/init.d/php8.2-fpm start && nginx -g 'daemon off;'
+service php8.2-fpm start
+service nginx start
+
+[[ $DAEMONIZE == 1 ]] && tail -f /dev/null
 
 exit 0

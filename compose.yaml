@@ -22,6 +22,6 @@ services:
       WORDPRESS_ENV: development
     image: jarijokinen/wordpress:latest
     ports:
-      - 80:80
+      - 80:8080
 volumes:
   db_data:
