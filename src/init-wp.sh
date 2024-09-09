@@ -20,6 +20,6 @@ fi
 service php8.2-fpm start
 service nginx start
 
-[[ $FOREGROUND == 1 ]] && tail -f /dev/null
+[[ $DISABLE_FOREGROUND == 1 ]] || tail -f /dev/null
 
 exit 0

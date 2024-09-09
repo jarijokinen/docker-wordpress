@@ -20,10 +20,11 @@ COPY ./src/wp-config.php wordpress/wp-config.php
 COPY ./src/init-wp.sh /init-wp.sh
 RUN chmod 700 /init-wp.sh
 
-COPY ./src/nginx.default.conf /etc/nginx/conf.d/default.conf
+RUN rm -rf /etc/nginx/sites-*
+
+COPY ./src/nginx.conf /etc/nginx/nginx.conf
 RUN sed -i 's/www-data/wp/g' /etc/php/8.2/fpm/pool.d/www.conf
 RUN sed -i 's/listen = \/run\/php\/php8.2-fpm.sock/listen = 9000/g' \
   /etc/php/8.2/fpm/pool.d/www.conf
 
-ENV FOREGROUND=1
 ENTRYPOINT ["/init-wp.sh"]
