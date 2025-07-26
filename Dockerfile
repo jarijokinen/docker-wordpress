@@ -4,8 +4,15 @@ RUN apt-get update
 RUN apt-get install --no-install-recommends --no-install-suggests -y \
   ca-certificates \
   nginx-light \
+  php-curl \
   php-fpm \
+  php-gd \
+  php-imagick \
+  php-intl \
+  php-mbstring \
   php-mysql \
+  php-xml \
+  php-zip \
   tar \
   wget
 
